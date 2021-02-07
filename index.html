@@ -7,7 +7,7 @@
  <meta name="description" content="DesainerHub - Maksum Rifai">
  <!--Aframe Core, not the latest release but most stable for this project-->
  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
- <!--Aframe environment component, you can remove it if not used -->
+ <!--Aframe environment, template, layout and event component, you can remove it if not used -->
  <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
  <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
  <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
@@ -31,8 +31,7 @@
       event-set__click="_target: ${src}; _delay: 300;"></a-entity>
     </script>
     <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-
-    <!-- Images. -->
+    <!-- Images and URLs. -->
     <a-link id="home" href="https://desainerhub.com" target="_blank"></a-link>
     <img id="home-thumb" src="home.jpg">
     <a-link id="shop" href="https://desainerhub.com/shop" target="_blank"></a-link>
@@ -40,7 +39,7 @@
     <a-link id="store" href="https://desainerhub.com/store" target="_blank"></a-link>
     <img id="store-thumb" src="store.jpg">
   </a-assets>
-  <!--End of assets Object-->
+  <!--End of All Assets-->
   <!--Using Assets Above with assets ID, add desire position/scale/rotation and simple Animation-->
   <a-entity rotation="0 0 0" scale="1 1 1" position="6 0 -40" obj-model="obj: #dh-obj; mtl: #dh-mtl"
   animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
@@ -55,16 +54,13 @@
       animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
       animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
   </a-camera>
-  <!--Add link-->
+  <!--Add links and tumbnails-->
   <a-entity id="links" layout="type: line; margin: 1" position="-1 1.5 -2">
     <a-entity template="src: #plane" data-src="#home" data-thumb="#home-thumb"></a-entity>
     <a-entity template="src: #plane" data-src="#shop" data-thumb="#shop-thumb"></a-entity>
     <a-entity template="src: #plane" data-src="#store" data-thumb="#store-thumb"></a-entity>
   </a-entity>
-
-  
   <!--End of scene, add everything you want to show above this line-->
  </a-scene>
 </body>
-
 </html>

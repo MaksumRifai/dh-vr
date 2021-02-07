@@ -1,6 +1,6 @@
 # Create Your Own Web Virtual Reality
 
-<a href="https://github.com/MaksumRifai/dh-vr/blob/master/dh-preview.png"><img src="https://raw.githubusercontent.com/MaksumRifai/digitaltalent/master/dts-preview.png"></a>
+<a href="https://github.com/MaksumRifai/dh-vr/blob/master/dh-preview.jpg"><img src="https://raw.githubusercontent.com/MaksumRifai/dh-vr/master/dh-preview.jpg"></a>
 
 # Virtual Reality
 I used A-Frame, A-Frame Is A web framework for building virtual reality experiences, A-Frame handles the 3D and WebVR boilerplate required to get running across platforms including mobile, desktop, Vive, and Rift.
@@ -16,7 +16,7 @@ You can download and use 3D models or object from anywhere or create your own wi
 
 # Live and Preview
 ## Preview
-<a href="https://github.com/MaksumRifai/digitaltalent/blob/master/dh-preview.jpg"><img src="https://raw.githubusercontent.com/MaksumRifai/digitaltalent/master/dh-preview.jpg"></a>
+<a href="https://github.com/MaksumRifai/dh-vr/blob/master/dh-preview.jpg"><img src="https://raw.githubusercontent.com/MaksumRifai/dh-vr/master/dh-preview.jpg"></a>
 ## Live
 - https://desainerhub.com/vr
 - https://maksumrifai.github.io/dh-vr/
@@ -38,35 +38,67 @@ Use green button above and click "Download Zip" or simply click [here](https://g
 
 <head>
  <meta charset="utf-8">
- <title>Digital Talent Sholarship - VR Maksum Rifai</title>
- <meta name="description" content="Digital Talent Sholarship - A-Frame VR - Maksum Rifai">
- <!--Aframe.js Core, not the latest release but most stable for this project-->
- <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
- <!--Aframe environment component, you can remove it if you use custom sky and plane entity -->
- <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+ <title>DesainerHub - VR Maksum Rifai</title>
+ <meta name="description" content="DesainerHub - Maksum Rifai">
+ <!--Aframe Core, not the latest release but most stable for this project-->
+ <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+ <!--Aframe environment, template, layout and event component, you can remove it if not used -->
+ <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+ <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+ <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+ <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
 </head>
 
 <body>
  <a-scene>
   <!--Load assets Object 3D, Preserve all your assets below before placing it to the scene (recommended)-->
   <a-assets>
-  <!--Always Asign ID to assets item for using-->
-   <a-asset-item id="dts-obj" src="/DTS.obj"></a-asset-item>
-   <a-asset-item id="dts-mtl" src="/DTS.mtl"></a-asset-item>
+   <!--Always Asign ID to assets item for using-->
+   <a-asset-item id="dh-obj" src="dh.obj"></a-asset-item>
+   <a-asset-item id="dh-mtl" src="dh.mtl"></a-asset-item>
+     <script id="plane" type="text/html">
+    <a-entity class="link"
+      geometry="primitive: plane; height: 0.5; width: 0.5"
+      material="shader: flat; src: ${thumb}"
+      sound="on: click; src: #click-sound"
+      event-set__mouseenter="scale: 1.2 1.2 1"
+      event-set__mouseleave="scale: 1 1 1"
+      event-set__click="_target: ${src}; _delay: 300;"></a-entity>
+    </script>
+    <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+    <!-- Images and URLs. -->
+    <a-link id="home" href="https://desainerhub.com" target="_blank"></a-link>
+    <img id="home-thumb" src="home.jpg">
+    <a-link id="shop" href="https://desainerhub.com/shop" target="_blank"></a-link>
+    <img id="shop-thumb" src="shop.jpg">
+    <a-link id="store" href="https://desainerhub.com/store" target="_blank"></a-link>
+    <img id="store-thumb" src="store.jpg">
   </a-assets>
-  <!--End of assets Object-->
+  <!--End of All Assets-->
   <!--Using Assets Above with assets ID, add desire position/scale/rotation and simple Animation-->
-  <a-entity rotation="0 45 0" scale="0.01 0.01 0.01" position="0 0 -3" obj-model="obj: #dts-obj; mtl: #dts-mtl" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
-  <!--Add Environtment Forest Preset, alternatively use <a-plane> and <a-sky> for custom ground and sky-->
-  <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
-  <!--Add Camera with custom height (3 meter), default is 1.6 (160 cm), remove line below will inject default camera-->
-  <a-entity camera look-controls position="0 3 0"></a-entity>
+  <a-entity rotation="0 0 0" scale="1 1 1" position="6 0 -40" obj-model="obj: #dh-obj; mtl: #dh-mtl"
+  animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+  animation__2="property: position; to: -10 2 -30; loop: true; dur: 10000"></a-entity>
+  <!--Add Environtment Forest Preset, alternatively use <a-plan> and <a-sky> for custom ground and sky-->
+  <a-entity environment="preset: arches; dressingAmount: 10"></a-entity>
+  <!--Add Camera-->
+  <a-camera>
+    <a-cursor
+      id="cursor"
+      animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+      animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
+      animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+  </a-camera>
+  <!--Add links and tumbnails-->
+  <a-entity id="links" layout="type: line; margin: 1" position="-1 1.5 -2">
+    <a-entity template="src: #plane" data-src="#home" data-thumb="#home-thumb"></a-entity>
+    <a-entity template="src: #plane" data-src="#shop" data-thumb="#shop-thumb"></a-entity>
+    <a-entity template="src: #plane" data-src="#store" data-thumb="#store-thumb"></a-entity>
+  </a-entity>
   <!--End of scene, add everything you want to show above this line-->
  </a-scene>
 </body>
-
 </html>
-
 ```
 
 In case you want to use your own models, simply replace the [.obj .mtl .png](https://en.m.wikipedia.org/wiki/Wavefront_.obj_file) files with yours. Don't forget to export your MagicaVoxel or Blender project properly.
