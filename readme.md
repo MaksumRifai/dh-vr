@@ -1,6 +1,6 @@
 # Create Your Own Web Virtual Reality
 
-<a href="https://github.com/MaksumRifai/digitaltalent/blob/master/dts-preview.png"><img src="https://raw.githubusercontent.com/MaksumRifai/digitaltalent/master/dts-preview.png"></a>
+<a href="https://github.com/MaksumRifai/dh-vr/blob/master/dh-preview.png"><img src="https://raw.githubusercontent.com/MaksumRifai/digitaltalent/master/dts-preview.png"></a>
 
 # Virtual Reality
 I used A-Frame, A-Frame Is A web framework for building virtual reality experiences, A-Frame handles the 3D and WebVR boilerplate required to get running across platforms including mobile, desktop, Vive, and Rift.
@@ -16,20 +16,20 @@ You can download and use 3D models or object from anywhere or create your own wi
 
 # Live and Preview
 ## Preview
-<a href="https://github.com/MaksumRifai/digitaltalent/blob/master/dts-preview.gif"><img src="https://raw.githubusercontent.com/MaksumRifai/digitaltalent/master/dts-preview.gif"></a>
+<a href="https://github.com/MaksumRifai/digitaltalent/blob/master/dh-preview.jpg"><img src="https://raw.githubusercontent.com/MaksumRifai/digitaltalent/master/dh-preview.jpg"></a>
 ## Live
-- https://digitaltalent.netlify.app
-- https://maksumrifai.github.io/digitaltalent/
+- https://desainerhub.com/vr
+- https://maksumrifai.github.io/dh-vr/
 
 # How to use this template
 ## Clonning
 Run the following command to clone this template to your local directory:
 ```
-$ git clone https://github.com/MaksumRifai/digitaltalent.git
+$ git clone https://github.com/MaksumRifai/dh-vr.git
 
 ```
 ## Download
-Use green button above and click "Download Zip" or simply click [here](https://github.com/MaksumRifai/digitaltalent/archive/master.zip)
+Use green button above and click "Download Zip" or simply click [here](https://github.com/MaksumRifai/dh-vr/archive/master.zip)
 ## Customizing
 
 ```
